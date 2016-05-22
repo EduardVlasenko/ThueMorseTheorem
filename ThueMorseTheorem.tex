@@ -1,0 +1,1256 @@
+\documentclass[12pt]{report}
+\usepackage[]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fullpage}
+\usepackage{coqdoc}
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file has been automatically generated with the command
+%% C:\Coq\bin\coqdoc -latex ThueMorseTheorem.v 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\coqlibrary{ThueMorseTheorem}{Library }{ThueMorseTheorem}
+
+\begin{coqdoccode}
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqexternalref{}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdoclibrary{Nat}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqexternalref{}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.funind.Recdef}{\coqdoclibrary{Recdef}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqexternalref{}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdoclibrary{PeanoNat}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqexternalref{}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdoclibrary{Coq.Arith.Plus}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqexternalref{}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclibrary{Coq.Arith.Div2}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqexternalref{}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclibrary{Even}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Require} \coqdockw{Import} \coqexternalref{}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclibrary{Coq.Bool.Bool}}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Lemma} \coqdef{ThueMorseTheorem.negb eq}{negb\_eq}{\coqdoclemma{negb\_eq}}: (\coqdockw{\ensuremath{\forall}} \coqdocvar{a} \coqdocvar{b}:\coqexternalref{bool}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{bool}}, \coqexternalref{negb}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocdefinition{negb}} \coqdocvariable{a} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{negb}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocdefinition{negb}} \coqdocvariable{b} \coqexternalref{:type scope:x '<->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\leftrightarrow}}} \coqdocvariable{a} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvariable{b}).\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{split}; \coqdoctac{intros}; \coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{a} \coqdoctac{in} *; \coqdoctac{case} \coqdocvar{b} \coqdoctac{in} *; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Theorem} \coqdef{ThueMorseTheorem.even correct}{even\_correct}{\coqdoclemma{even\_correct}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{k}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, (\coqexternalref{Nat.even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.even}}(\coqdocvariable{k}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{k}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{true}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{true}}).\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}. \coqdoctac{unfold} \coqexternalref{Nat.even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.even}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{k}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute}. \coqdoctac{fold} \coqexternalref{plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocabbreviation{plus}}. \coqdoctac{fold} \coqexternalref{Nat.even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.even}}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Hint Resolve} \coqdocvar{even\_correct}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Theorem} \coqdef{ThueMorseTheorem.even correct2}{even\_correct2}{\coqdoclemma{even\_correct2}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{k}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, (\coqexternalref{Nat.even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.even}}(\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{k}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{k})) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{false}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{false}}).\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}. \coqdoctac{unfold} \coqexternalref{Nat.even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.even}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{k}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute}. \coqdoctac{fold} \coqexternalref{plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocabbreviation{plus}}. \coqdoctac{fold} \coqexternalref{Nat.even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.even}}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Hint Resolve} \coqdocvar{even\_correct2}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Function} \coqdocvar{HasDoubleRepeat}(\coqdocvar{f}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}\coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}}\coqexternalref{bool}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{bool}}) (\coqdocvar{start} \coqdocvar{length}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}): \coqdockw{Prop} :=\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{\ensuremath{\forall}} \coqdocvar{k}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqdocvariable{k} \coqexternalref{:nat scope:x '<' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{<}} \coqdocvariable{length}\coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)->}} \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqexternalref{:type scope:x '/x5C' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqdocvariable{f}(\coqdocvariable{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvariable{f}(\coqdocvariable{start}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{length}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{k})\coqexternalref{:type scope:x '/x5C' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}} \coqexternalref{:type scope:x '/x5C' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\land}}} \coqexternalref{:type scope:x '/x5C' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqdocvariable{f}(\coqdocvariable{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvariable{f}(\coqdocvariable{start}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{length}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{length}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{k})\coqexternalref{:type scope:x '/x5C' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}}\coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Hint Unfold} \coqref{ThueMorseTheorem.HasDoubleRepeat}{\coqdocdefinition{HasDoubleRepeat}}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Function} \coqdocvar{HasNoDoubleRepeats}(\coqdocvar{f}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}\coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}}\coqexternalref{bool}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{bool}}): \coqdockw{Prop}  := \coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{\ensuremath{\forall}} (\coqdocvar{start} \coqdocvar{length}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}), \coqdoceol
+\coqdocindent{2.00em}
+\coqdocvariable{length} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} 0 \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqexternalref{not}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocdefinition{not}} (\coqref{ThueMorseTheorem.HasDoubleRepeat}{\coqdocdefinition{HasDoubleRepeat}} \coqdocvariable{f} \coqdocvariable{start} \coqdocvariable{length}).\coqdoceol
+\coqdocnoindent
+\coqdockw{Hint Unfold} \coqref{ThueMorseTheorem.HasNoDoubleRepeats}{\coqdocdefinition{HasNoDoubleRepeats}}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Lemma} \coqdef{ThueMorseTheorem.le plus one}{le\_plus\_one}{\coqdoclemma{le\_plus\_one}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{n} \coqdocvar{k}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqdocvariable{n} \coqexternalref{:nat scope:x '<=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{\ensuremath{\le}}} \coqdocvariable{k} \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}} \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{n} \coqexternalref{:nat scope:x '<=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{\ensuremath{\le}}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{k}\coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{v62}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Function} \coqdocvar{ThueMorseSequence}(\coqdocvar{n}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}) \{\coqdockw{measure} (\coqdockw{fun} (\coqdocvar{x}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}})=> \coqdocvariable{x}) \coqdocvar{n}\}:= \coqdockw{match} \coqdocvariable{n} \coqdockw{with}\coqdoceol
+\coqdocindent{9.00em}
+\ensuremath{|} \coqexternalref{O}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{O}} \ensuremath{\Rightarrow} \coqexternalref{false}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{false}}\coqdoceol
+\coqdocindent{9.00em}
+\ensuremath{|} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x} \ensuremath{\Rightarrow} \coqexternalref{xorb}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocdefinition{xorb}} (\coqexternalref{Nat.even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.even}} \coqdocvar{x}) (\coqref{ThueMorseTheorem.ThueMorseSequence}{\coqdocdefinition{ThueMorseSequence}}(\coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}}(\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})))\coqdoceol
+\coqdocindent{7.50em}
+\coqdockw{end}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{lt}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocdefinition{lt}}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{teq}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{n}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{le n}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocconstructor{le\_n}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{fold} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{y}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}},(\coqexternalref{:nat scope:x '<=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{(}}\coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}} \coqdocvariable{y}\coqexternalref{:nat scope:x '<=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{)}} \coqexternalref{:nat scope:x '<=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{\ensuremath{\le}}} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}}(\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{y}))).\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{y1}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, (\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\exists}}} \coqdocvar{x}\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{,}} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqdocvariable{y1} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{x}\coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqdocvariable{y1} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{x})\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}}\coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{y1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}} 0. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{IHy1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H}; \coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}}  \coqdocvar{x}. \coqdoctac{right}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}). \coqdoctac{left}. \coqdoctac{unfold} \coqexternalref{add}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{plus}}. \coqdoctac{fold} \coqexternalref{plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocabbreviation{plus}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{x},\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{x} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{x})). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H1}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\exists}}} \coqdocvar{x} : \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{,}} \coqdocvar{y} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{x} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqdocvar{y} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{x})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{x},\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{x} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{x})). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H0}; \coqdoctac{intros}; \coqdoctac{clear} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H2}; \coqdoctac{intros}; \coqdoctac{clear} \coqdocvar{H2}; \coqdoctac{rewrite} \coqdocvar{H0};\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{x},\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{x} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{x})). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{add}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{plus}}. \coqdoctac{fold} \coqexternalref{plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocabbreviation{plus}}. \coqdoctac{rewrite} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{div2}} \coqdoctac{at} 1. \coqdoctac{fold} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}}. \coqdoctac{unfold} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{div2}} \coqdoctac{at} 2. \coqdoctac{fold} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{div2}} \coqdoctac{in} \coqdocvar{IHx} \coqdoctac{at} 2. \coqdoctac{fold} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}} \coqdoctac{in} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assumption}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}. \coqdoctac{compute}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{x},\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{x} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{x})). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{add}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{plus}}. \coqdoctac{fold} \coqexternalref{plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocabbreviation{plus}}. \coqdoctac{rewrite} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{div2}} \coqdoctac{at} 1. \coqdoctac{fold} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}}. \coqdoctac{unfold} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{div2}} \coqdoctac{at} 2. \coqdoctac{fold} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{div2}} \coqdoctac{in} \coqdocvar{IHx} \coqdoctac{at} 2. \coqdoctac{fold} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}} \coqdoctac{in} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assumption}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{Nat.le trans}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdoclemma{Nat.le\_trans}} \coqdockw{with} (\coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assumption}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Hint Resolve} \coqdocvar{ThueMorseSequence\_equation}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Notation} \coqdef{ThueMorseTheorem.TMS}{TMS}{\coqdocabbreviation{TMS}}:=\coqref{ThueMorseTheorem.ThueMorseSequence}{\coqdoclemma{ThueMorseSequence}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Notation} \coqdef{ThueMorseTheorem.TMS eq}{TMS\_eq}{\coqdocabbreviation{TMS\_eq}}:=\coqref{ThueMorseTheorem.ThueMorseSequence equation}{\coqdoclemma{ThueMorseSequence\_equation}}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Lemma} \coqdef{ThueMorseTheorem.TMS even}{TMS\_even}{\coqdoclemma{TMS\_even}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{k}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqref{ThueMorseTheorem.ThueMorseSequence}{\coqdoclemma{ThueMorseSequence}}(\coqdocvariable{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.ThueMorseSequence}{\coqdoclemma{ThueMorseSequence}}(\coqdocvariable{k}).\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}. \coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.ThueMorseSequence equation}{\coqdoclemma{ThueMorseSequence\_equation}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{k}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{add}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{plus}}. \coqdoctac{fold} \coqexternalref{plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocabbreviation{plus}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.even correct2}{\coqdoclemma{even\_correct2}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{xorb false l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{xorb\_false\_l}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k}). \coqdoctac{unfold} \coqexternalref{mul}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{mult}}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}. \coqdoctac{rewrite} \coqexternalref{div2 double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{div2\_double}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Lemma} \coqdef{ThueMorseTheorem.TMS odd}{TMS\_odd}{\coqdoclemma{TMS\_odd}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{k}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqref{ThueMorseTheorem.ThueMorseSequence}{\coqdoclemma{ThueMorseSequence}}(\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k})) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{negb}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocdefinition{negb}}(\coqref{ThueMorseTheorem.ThueMorseSequence}{\coqdoclemma{ThueMorseSequence}}(\coqdocvariable{k})).\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.ThueMorseSequence equation}{\coqdoclemma{ThueMorseSequence\_equation}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{k}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{add}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{plus}}. \coqdoctac{fold} \coqexternalref{plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocabbreviation{plus}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.even correct}{\coqdoclemma{even\_correct}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{xorb true l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{xorb\_true\_l}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k}). \coqdoctac{unfold} \coqexternalref{mul}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{mult}}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}. \coqdoctac{rewrite} \coqexternalref{div2 double plus one}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{div2\_double\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Lemma} \coqdef{ThueMorseTheorem.TMS div2 even}{TMS\_div2\_even}{\coqdoclemma{TMS\_div2\_even}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{n}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} \coqdocvariable{n} \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}}(\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvariable{n}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} \coqdocvariable{n}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS even}{\coqdoclemma{TMS\_even}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{n} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{n} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{n}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{k}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqdocvariable{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{double}} \coqdocvariable{k}). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{even\_double}}. \coqdoctac{exact} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Lemma} \coqdef{ThueMorseTheorem.TMS div2 odd}{TMS\_div2\_odd}{\coqdoclemma{TMS\_div2\_odd}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{n}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} \coqdocvariable{n} \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}}(\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvariable{n}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{negb}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocdefinition{negb}} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} \coqdocvariable{n}).\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{negb sym}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{negb\_sym}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS odd}{\coqdoclemma{TMS\_odd}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{n} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{n} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{n})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{k}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqdocvariable{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{double}} \coqdocvariable{k}). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{odd\_double}}. \coqdoctac{exact} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Lemma} \coqdef{ThueMorseTheorem.TMS even S}{TMS\_even\_S}{\coqdoclemma{TMS\_even\_S}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{x}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} \coqdocvariable{x} \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{x}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{negb}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocdefinition{negb}} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} \coqdocvariable{x}).\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{negb sym}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{negb\_sym}} \coqdockw{with} \coqdocvar{\_} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} \coqdocvar{x}); \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqref{ThueMorseTheorem.TMS div2 odd}{\coqdoclemma{TMS\_div2\_odd}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{even div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{even\_div2}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Lemma} \coqdef{ThueMorseTheorem.TMS even S rev}{TMS\_even\_S\_rev}{\coqdoclemma{TMS\_even\_S\_rev}}: \coqdockw{\ensuremath{\forall}} \coqdocvar{x}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}, \coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} \coqdocvariable{x} \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} \coqdocvariable{x} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{negb}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocdefinition{negb}} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{x})).\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqref{ThueMorseTheorem.TMS div2 odd}{\coqdoclemma{TMS\_div2\_odd}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{even div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{even\_div2}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Theorem} \coqdef{ThueMorseTheorem.ThueMorse}{ThueMorse}{\coqdoclemma{ThueMorse}}: \coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\exists}}} \coqdocvar{f}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}\coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}}\coqexternalref{bool}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{bool}}\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{,}} \coqref{ThueMorseTheorem.HasNoDoubleRepeats}{\coqdocdefinition{HasNoDoubleRepeats}} \coqdocvariable{f}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Proof}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}} \coqref{ThueMorseTheorem.ThueMorseSequence}{\coqdoclemma{ThueMorseSequence}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqref{ThueMorseTheorem.HasNoDoubleRepeats}{\coqdocdefinition{HasNoDoubleRepeats}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{length} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} 0 \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\exists}}} \coqdocvar{l}\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{,}} \coqdocvar{length} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvariable{l}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{length}. \coqdoctac{left}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{right}. \coqdoctac{case} \coqdocvar{IHlength}; \coqdoctac{intros}; \coqdoctac{\ensuremath{\exists}} \coqdocvar{length}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H}; \coqdoctac{intros}; \coqdoctac{clear} \coqdocvar{H}. \coqdoctac{left}. \coqdoctac{assumption}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{right}. \coqdoctac{induction} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{not}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocdefinition{not}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{length}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{generalize} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{generalize} \coqdoctac{dependent} \coqdocvar{start}.\coqdoceol
+\coqdocnoindent
+\coqdocvar{functional} \coqdoctac{induction}  \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{start}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1) \coqexternalref{:type scope:x '/x5C' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\land}}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{start}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{O}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{O}} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvar{start}). \coqdoctac{auto}. \coqdoctac{rewrite} \ensuremath{\leftarrow}\coqdocvar{H} \coqdoctac{at} 1 3.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{O}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{O}}). \coqdoctac{auto}. \coqdoctac{rewrite} \coqdocvar{H1} \coqdoctac{at} 1.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{O}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{O}}). \coqdoctac{auto}. \coqdoctac{rewrite} \coqdocvar{H2} \coqdoctac{at} 1.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} (\coqdocvar{H0} 0 ). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H}; \coqdoctac{clear} \coqdocvar{H}; \coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} ((\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\exists}}} \coqdocvar{s}:\coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{,}} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqdocvar{start} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvariable{s} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{s}\coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\symbol{92}/(}}\coqdocvar{start} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvariable{s} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{s})\coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H} \coqdocvar{H1} \coqdocvar{H} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{start}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}} 0. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{IHstart}; \coqdoctac{clear} \coqdocvar{IHstart}; \coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H}; \coqdoctac{clear} \coqdocvar{H}; \coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}} \coqdocvar{x}. \coqdoctac{right}. \coqdoctac{rewrite} \coqdocvar{H}. \coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}} ((\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})). \coqdoctac{left}. \coqdoctac{rewrite} \coqdocvar{H}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{x})). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H0}. \coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H2}; \coqdoctac{clear} \coqdocvar{H2}; \coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H2}; \coqdoctac{clear} \coqdocvar{H2}; \coqdoctac{intros};\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H0};\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H2} \coqdoctac{in} \coqdocvar{H}; \coqdoctac{rewrite} \coqdocvar{H2} \coqdoctac{in} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even}{\coqdoclemma{TMS\_even}} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS odd}{\coqdoclemma{TMS\_odd}} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} \coqdocvar{x}) \coqdoctac{in} \coqdocvar{H};\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute} \coqdoctac{in} \coqdocvar{H};\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq true false abs}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{eq\_true\_false\_abs}} \coqdockw{with} \coqexternalref{true}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{true}}; \coqdoctac{auto}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS odd}{\coqdoclemma{TMS\_odd}} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq sym}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdoclemma{eq\_sym}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}. \coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H0} \coqdoctac{in} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS odd}{\coqdoclemma{TMS\_odd}} \coqdoctac{in} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS odd}{\coqdoclemma{TMS\_odd}} \coqdoctac{in} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1 \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}}  \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{))}}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{x} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{x}))).\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H3} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even}{\coqdoclemma{TMS\_even}} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})) \coqdoctac{in} *; \coqdoctac{simpl} \coqdoctac{in} \coqdocvar{H};\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq true false abs}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{eq\_true\_false\_abs}} \coqdockw{with} (\coqexternalref{negb}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocdefinition{negb}} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} \coqdocvar{x})); \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} \coqdocvar{x} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} \coqdocvar{x}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even or odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_or\_odd}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H}; \coqdoctac{intros}; \coqdoctac{clear} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{IHb} \coqdockw{with} (\coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}} \coqdocvar{start}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{x}\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} <-(\coqexternalref{even div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{even\_div2}} \coqdocvar{x}); \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H} \coqdoctac{in} *. \coqdoctac{clear} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqref{ThueMorseTheorem.HasDoubleRepeat}{\coqdocdefinition{HasDoubleRepeat}} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHb} \coqdocvar{H0} \coqdocvar{H1} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{k}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}; \coqdoctac{simpl}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{mul}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{mul}}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{at} 1. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{at} 1.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}. \coqdoctac{assert} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0 \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvar{k}). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}. \coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}. \coqdoctac{clear} \coqdocvar{H}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{IHk}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{start} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k}))).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{k} 0.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}. \coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H2}. \coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}}(\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}}(\coqdocvar{x})) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHb} \coqdocvar{H0} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{k}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}; \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})). \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocdefinition{eq\_S}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\exists}}} \coqdocvar{k}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{,}} \coqdocvar{x}\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}}\coqdocvariable{k}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{k}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}} (\coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}} \coqdocvar{x}). \coqdoctac{fold} (\coqexternalref{double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{double}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{x})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H}. \coqdoctac{intros}. \coqdoctac{clear} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H0}. \coqdoctac{clear} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x0}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x0} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x0}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{x0} \coqdocvar{\_}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{mul}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{mul}}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{at} 1. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{at} 1.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}. \coqdoctac{assert} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0 \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvar{k}). \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}. \coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}. \coqdoctac{clear} \coqdocvar{H}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{IHk}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k}))).\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{k} 0.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}. \coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H2}. \coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}}(\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHb} \coqdocvar{H0} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{k}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}; \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})). \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocdefinition{eq\_S}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\exists}}} \coqdocvar{k}: \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}}\coqexternalref{:type scope:'exists' x '..' x ',' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{,}} \coqdocvar{x}\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}}\coqdocvariable{k}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvariable{k}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{\ensuremath{\exists}} (\coqexternalref{div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{div2}} \coqdocvar{x}). \coqdoctac{fold} (\coqexternalref{double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdocabbreviation{double}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{x})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H}. \coqdoctac{intros}. \coqdoctac{clear} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H0}. \coqdoctac{clear} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x0}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 2. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x0} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x0}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{x0} \coqdocvar{\_}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocdefinition{eq\_S}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{start}) \coqdocvar{\_}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} (\coqdocvar{x0} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{x0}) \coqdocvar{\_}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} (\coqdocvar{start}) \coqdocvar{\_}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{x0} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{x0})))) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{(}}\coqdocvar{x0} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{x0}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{)}})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{in} \coqdocvar{IHx0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{start} \coqdocvar{\_} \coqdoctac{in} \coqdocvar{IHx0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{start}) \coqdocvar{\_} \coqdoctac{in} \coqdocvar{IHx0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} (\coqdocvar{x0}\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}}\coqdocvar{x0}) \coqdocvar{\_} \coqdoctac{in} \coqdocvar{IHx0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{compute} \coqdoctac{in} \coqdocvar{IHx0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{IHx0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{mul}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{mul}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{k} \coqdocvar{\_}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{k}). \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{k} \coqdocvar{\_}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{IHk}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k}))). \coqdoctac{simpl} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k})) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{(}}\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{)}})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} (\coqdocvar{k} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k}). \coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H2}. \coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} \coqdocvar{start} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} \coqdocvar{start}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even or odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_or\_odd}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H2}; \coqdoctac{intros};\coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHb}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even even plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_even\_plus}}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even mult l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_mult\_l}}. \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even even plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_even\_plus}}. \coqdoctac{apply} \coqexternalref{even even plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_even\_plus}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even mult l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_mult\_l}}. \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even even plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_even\_plus}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{even double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{even\_double}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{Nat.double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.double}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{mul}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{mul}}. \coqdoctac{simpl} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}))).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0. \coqdoctac{simpl} (0 \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{plus lt le compat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdoclemma{plus\_lt\_le\_compat}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{lt}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocdefinition{lt}} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{Nat.le trans}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdoclemma{Nat.le\_trans}} \coqdockw{with} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{k}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHb}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd plus l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{odd\_plus\_l}}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even mult l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_mult\_l}}. \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS div2 odd}{\coqdoclemma{TMS\_div2\_odd}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd plus l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{odd\_plus\_l}}. \coqdoctac{apply} \coqexternalref{odd plus l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{odd\_plus\_l}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even mult l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_mult\_l}}. \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS div2 odd}{\coqdoclemma{TMS\_div2\_odd}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2 \coqexternalref{:nat scope:x '*' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{\ensuremath{\times}}} \coqdocvar{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd plus l}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{odd\_plus\_l}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS div2 odd}{\coqdoclemma{TMS\_div2\_odd}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H2}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.negb eq}{\coqdoclemma{negb\_eq}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.negb eq}{\coqdoclemma{negb\_eq}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{even double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Div2}{\coqdoclemma{even\_double}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{Nat.double}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.double}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{mul}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocdefinition{mul}}. \coqdoctac{simpl} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}))).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0. \coqdoctac{simpl} (0 \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvar{k}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{plus lt le compat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdoclemma{plus\_lt\_le\_compat}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{lt}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocdefinition{lt}} \coqdoctac{in} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{Nat.le trans}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdoclemma{Nat.le\_trans}} \coqdockw{with} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{k}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHb}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} \coqdocvar{start} \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} \coqdocvar{start}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even or odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_or\_odd}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{H}; \coqdoctac{intros}; \coqdoctac{clear} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{pose} (\coqdocvar{st}:=\coqdocvar{start}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{k} : \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}},\coqdoceol
+\coqdocindent{2.50em}
+\coqdocvariable{k} \coqexternalref{:nat scope:x '<' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{<}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}}\coqdoceol
+\coqdocindent{2.50em}
+\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{(}}\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{)}} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{(}}\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{)}} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{lt}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocdefinition{lt}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd ind}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocdefinition{odd\_ind}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}. \coqdoctac{induction} \coqdocvar{n}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S}{\coqdoclemma{TMS\_even\_S}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S rev}{\coqdoclemma{TMS\_even\_S\_rev}} \coqdockw{with} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0); \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.negb eq}{\coqdoclemma{negb\_eq}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}. \coqdoctac{induction} \coqdocvar{x}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{in} \coqdocvar{H4}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} \coqdoctac{in} \coqdocvar{H4}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H4}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 1. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{x} \coqexternalref{:nat scope:x '<=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{\ensuremath{\le}}} 2 \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} 2 \coqexternalref{:nat scope:x '<' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{<}} \coqdocvar{x}) \coqdockw{as} \coqdocvar{tmp}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H1} \coqdocvar{H2} \coqdocvar{H} \coqdocvar{H0} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{right}. \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{tmp}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{x} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{inversion} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{x} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H4} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite}  \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0 \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite}  \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0 \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H0} \coqdoctac{in} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S rev}{\coqdoclemma{TMS\_even\_S\_rev}} \coqdoctac{in} \coqdocvar{H3}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 3 \coqdoctac{in} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 2 \coqdoctac{in} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} \coqdoctac{in} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{st})))) \coqdoctac{in} *; \coqdoctac{simpl} \coqdoctac{in} \coqdocvar{H3};\coqdoceol
+\coqdocindent{0.50em}
+\coqdoctac{apply} \coqexternalref{eq true false abs}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{eq\_true\_false\_abs}} \coqdockw{with} \coqexternalref{true}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{true}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{x} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{inversion} \coqdocvar{H1}. \coqdoctac{inversion} \coqdocvar{H6}. \coqdoctac{inversion} \coqdocvar{H8}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{inversion} \coqdocvar{H4}. \coqdoctac{inversion} \coqdocvar{H6}. \coqdoctac{inversion} \coqdocvar{H8}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 4) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.negb eq}{\coqdoclemma{negb\_eq}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS even S rev}{\coqdoclemma{TMS\_even\_S\_rev}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}))))\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 3).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 3.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H5}. \coqdoctac{clear} \coqdocvar{H5}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqdocvar{H}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{negb sym}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{negb\_sym}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS even S rev}{\coqdoclemma{TMS\_even\_S\_rev}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqdocvar{H3}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocconstructor{even\_S}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocconstructor{odd\_S}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}} \coqdoctac{in} \coqdocvar{H3}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}} \coqdoctac{in} \coqdocvar{H5}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}} \coqdockw{with} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0) \coqdoctac{in} \coqdocvar{H3}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}} \coqdockw{with} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0) \coqdoctac{in} \coqdocvar{H5}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{in} *. \coqdoctac{simpl} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0 \coqdoctac{in} *. \coqdoctac{simpl} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{st}) \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{st})). \coqdoctac{apply} \coqexternalref{even or odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_or\_odd}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{H6}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S}{\coqdoclemma{TMS\_even\_S}} \coqdoctac{in} \coqdocvar{H3}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{st})) \coqdoctac{in} *; \coqdoctac{compute} \coqdoctac{in} \coqdocvar{H3};\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq true false abs}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{eq\_true\_false\_abs}} \coqdockw{with} \coqexternalref{false}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{false}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqdocvar{H3} \coqdoctac{in} \coqdocvar{H5}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S}{\coqdoclemma{TMS\_even\_S}} \coqdoctac{in} \coqdocvar{H5}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{st}))) \coqdoctac{in} *; \coqdoctac{compute} \coqdoctac{in} \coqdocvar{H5};\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq true false abs}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{eq\_true\_false\_abs}} \coqdockw{with} \coqexternalref{false}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{false}}; \coqdoctac{auto}.\coqdoceol
+\coqdocemptyline
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{pose} (\coqdocvar{st}:=\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{(}}\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{)}}).\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{k} : \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}},\coqdoceol
+\coqdocindent{2.50em}
+\coqdocvariable{k} \coqexternalref{:nat scope:x '<' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{<}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}}\coqdoceol
+\coqdocindent{2.50em}
+\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqref{ThueMorseTheorem.HasDoubleRepeat}{\coqdocdefinition{HasDoubleRepeat}} \coqdoctac{in} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdockw{\ensuremath{\forall}} \coqdocvar{k} : \coqexternalref{nat}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocinductive{nat}},\coqdoceol
+\coqdocindent{2.50em}
+\coqdocvariable{k} \coqexternalref{:nat scope:x '<' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{<}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:type scope:x '->' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\rightarrow}}}\coqdoceol
+\coqdocindent{2.50em}
+\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{start} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k}) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqdocvariable{k})).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H0}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assumption}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assumption}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H0}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{rename} \coqdocvar{H2} \coqdocvar{into} \coqdocvar{tmp}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} \coqdocvar{st}) \coqdockw{as} \coqdocvar{H2}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd even plus}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{odd\_even\_plus}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{(}}\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{)}} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{tmp}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{(}}\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x})\coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{)}} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 2)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{unfold} \coqexternalref{lt}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocdefinition{lt}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd ind}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocdefinition{odd\_ind}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}. \coqdoctac{induction} \coqdocvar{n}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S}{\coqdoclemma{TMS\_even\_S}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S rev}{\coqdoclemma{TMS\_even\_S\_rev}} \coqdockw{with} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0); \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.negb eq}{\coqdoclemma{negb\_eq}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 1)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqdocvar{H}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqref{ThueMorseTheorem.le plus one}{\coqdoclemma{le\_plus\_one}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{intros}. \coqdoctac{induction} \coqdocvar{x}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{in} \coqdocvar{H4}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} \coqdoctac{in} \coqdocvar{H4}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H4}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 1. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{reflexivity}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqdocvar{x} \coqexternalref{:nat scope:x '<=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{\ensuremath{\le}}} 2 \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} 2 \coqexternalref{:nat scope:x '<' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Peano}{\coqdocnotation{<}} \coqdocvar{x}) \coqdockw{as} \coqdocvar{tmp}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H1} \coqdocvar{H2} \coqdocvar{H} \coqdocvar{H0} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{x}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{IHx}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{right}. \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{tmp}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{x} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{inversion} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{x} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{clear} \coqdocvar{H4} \coqdocvar{H1}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite}  \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0 \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite}  \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0 \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H0} \coqdoctac{in} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S rev}{\coqdoclemma{TMS\_even\_S\_rev}} \coqdoctac{in} \coqdocvar{H3}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 3 \coqdoctac{in} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 2 \coqdoctac{in} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl} \coqdoctac{in} \coqdocvar{H3}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{st})))) \coqdoctac{in} *; \coqdoctac{simpl} \coqdoctac{in} \coqdocvar{H3};\coqdoceol
+\coqdocindent{0.50em}
+\coqdoctac{apply} \coqexternalref{eq true false abs}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{eq\_true\_false\_abs}} \coqdockw{with} \coqexternalref{true}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{true}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} \coqdocvar{x} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{inversion} \coqdocvar{H1}. \coqdoctac{inversion} \coqdocvar{H6}. \coqdoctac{inversion} \coqdocvar{H8}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{inversion} \coqdocvar{H4}. \coqdoctac{inversion} \coqdocvar{H6}. \coqdoctac{inversion} \coqdocvar{H8}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 4) \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0)).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.negb eq}{\coqdoclemma{negb\_eq}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS even S rev}{\coqdoclemma{TMS\_even\_S\_rev}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{(}}\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}))))\coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{)}} \coqexternalref{:type scope:x '=' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{=}} \coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} \coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} \coqdocvar{x}) \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 3).\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 3.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqdocvar{H5}. \coqdoctac{clear} \coqdocvar{H5}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqdocvar{H}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{negb sym}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{negb\_sym}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS even S rev}{\coqdoclemma{TMS\_even\_S\_rev}}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqdocvar{H3}. \coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}}. \coqdoctac{simpl}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{even S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocconstructor{even\_S}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{odd S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocconstructor{odd\_S}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}} \coqdoctac{in} \coqdocvar{H3}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}} \coqdoctac{in} \coqdocvar{H5}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}} \coqdockw{with} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0) \coqdoctac{in} \coqdocvar{H3}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow}\coqref{ThueMorseTheorem.TMS div2 even}{\coqdoclemma{TMS\_div2\_even}} \coqdockw{with} (\coqdocvar{st} \coqexternalref{:nat scope:x '+' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Nat}{\coqdocnotation{+}} 0) \coqdoctac{in} \coqdocvar{H5}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdoctac{in} *. \coqdoctac{simpl} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqexternalref{plus comm}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Plus}{\coqdocabbreviation{plus\_comm}} \coqdockw{with} \coqdocvar{\_} 0 \coqdoctac{in} *. \coqdoctac{simpl} \coqdoctac{in} *.\coqdoceol
+\coqdocnoindent
+\coqdoctac{assert} (\coqexternalref{even}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{even}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{st}) \coqexternalref{:type scope:x 'x5C/' x}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Logic}{\coqdocnotation{\ensuremath{\lor}}} \coqexternalref{odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdocinductive{odd}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{st})). \coqdoctac{apply} \coqexternalref{even or odd}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.Even}{\coqdoclemma{even\_or\_odd}}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{induction} \coqdocvar{H6}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S}{\coqdoclemma{TMS\_even\_S}} \coqdoctac{in} \coqdocvar{H3}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{st})) \coqdoctac{in} *; \coqdoctac{compute} \coqdoctac{in} \coqdocvar{H3};\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq true false abs}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{eq\_true\_false\_abs}} \coqdockw{with} \coqexternalref{false}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{false}}; \coqdoctac{auto}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \ensuremath{\leftarrow} \coqdocvar{H3} \coqdoctac{in} \coqdocvar{H5}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{rewrite} \coqref{ThueMorseTheorem.TMS even S}{\coqdoclemma{TMS\_even\_S}} \coqdoctac{in} \coqdocvar{H5}; \coqdoctac{auto} \coqdockw{with} \coqdocvar{arith}.\coqdoceol
+\coqdocnoindent
+\coqdoctac{case} (\coqref{ThueMorseTheorem.TMS}{\coqdocabbreviation{TMS}} (\coqexternalref{S}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{S}} (\coqexternalref{Nat.div2}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Arith.PeanoNat}{\coqdocdefinition{Nat.div2}} \coqdocvar{st}))) \coqdoctac{in} *; \coqdoctac{compute} \coqdoctac{in} \coqdocvar{H5};\coqdoceol
+\coqdocnoindent
+\coqdoctac{apply} \coqexternalref{eq true false abs}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Bool.Bool}{\coqdoclemma{eq\_true\_false\_abs}} \coqdockw{with} \coqexternalref{false}{http://coq.inria.fr/distrib/8.5/stdlib/Coq.Init.Datatypes}{\coqdocconstructor{false}}; \coqdoctac{auto}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Qed}.\coqdoceol
+\end{coqdoccode}
+\end{document}
